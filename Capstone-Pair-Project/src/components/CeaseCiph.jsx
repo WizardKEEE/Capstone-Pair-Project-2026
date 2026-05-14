@@ -19,7 +19,18 @@ export const CeaseCiph = () => {
     asciicodes.split('');
     const asciiArr = [];
     for (let index = 0; index < asciicodes.length; index++) {
+        if (asciicodes[index] === ' ') {
+            asciiArr[index] = 32;
+            continue;
+        }
         asciiArr.push(parseInt(asciicodes.charCodeAt(index)) + parseInt(shiftAmount));
+        if (asciiArr[index] >= 123) {
+            let offset = asciiArr[index] - 123;
+            asciiArr[index] =  97 + offset;
+        } else if (asciiArr[index] <= 96) {
+            let offset = asciiArr[index] - 97;  
+            asciiArr[index] = 123 + offset;
+        }
     }
     const wordArr = [];
     for (let index = 0; index < asciiArr.length; index++) {
