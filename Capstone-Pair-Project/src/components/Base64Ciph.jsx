@@ -1,5 +1,5 @@
 import { useState } from "react"
-export const Base64Ciph = ({ciphVal}) => {
+export const Base64Ciph = () => {
     const [inputVal, setInputVal] = useState('');
 
     const handleChange = (e) => {
